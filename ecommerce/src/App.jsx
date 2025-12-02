@@ -1,4 +1,4 @@
-import "styles/style.css";
+import "styles/styles.css";
 
 import Products from "./pages/Products";
 

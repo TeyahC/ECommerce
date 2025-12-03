@@ -4,50 +4,181 @@
   --vintage-lavender: #8d6a9fff;
   --silver: #c9c9c9ff;
   --dark-teal: #0b3c49ff;
+  --font-sans: "Arial", sans-serif;
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--silver);
   color: var(--dark-teal);
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  text-align: center;
+h1,
+h2 {
   color: var(--dark-teal);
-}
-
-.products-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  padding: 20px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.product-card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Wrapper for all pages to center content */
+/* Full-page wrapper that centers content vertically + horizontally */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  min-height: 100vh; /* full viewport height */
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--silver);
+}
+
+/* Force forms and tables to center with smaller width */
+.login-form,
+.admin-form {
+  width: 100%;
+  max-width: 600px; /* smaller than page wrapper */
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table-wrapper {
+  width: 100%;
+  max-width: 1000px; /* table won’t stretch full page */
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+
+table {
+  margin: 0 auto; /* center table inside wrapper */
+  width: auto; /* allow table to shrink to content */
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper table {
+  margin: 0 auto; /* center table */
+  align-items: center;
+}
+
+.admin-form {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center form inputs/buttons */
+}
+
+/* Forms */
+.login-form,
+.admin-form {
+  width: 100%;
+  max-width: 750px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  margin: 8px 0;
   border: 2px solid var(--vintage-lavender);
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 button {
   background-color: var(--bubblegum-pink);
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
   font-size: 1rem;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: background 0.3s;
 }
 
 button:hover {
   background-color: var(--night-bordeaux);
+}
+
+/* Product grid */
+.products-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 20px;
+  width: 100%;
+}
+
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card img {
+  max-width: 150px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+/* Admin table */
+.table-wrapper {
+  max-width: 1750px;
+  margin: 2rem auto;
+  overflow-x: auto;
+  width: 100%;
+  position: relative;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--vintage-lavender);
+}
+
+th {
+  background-color: var(--vintage-lavender);
+  color: white;
+}
+
+tr:last-child td {
+  border-bottom: none;
 }

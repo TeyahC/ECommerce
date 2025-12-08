@@ -6,24 +6,37 @@ import "./index.css";
 
 import App from "./App.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
 import Login from "./pages/Login.jsx";
+import Cart from "./pages/cart.jsx";
+import CustomerLogin from "./pages/customer.jsx";
+import Header from "./components/header.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
+import AdminPage from "./pages/AdminPage.jsx";
+import { AuthProvider } from "./contexts/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
-      </Routes>
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/customer" element={<CustomerLogin />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+
+          {/* Only one admin route, wrapped in AdminRoute */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AdminPage />
+              </AdminRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </Router>
   </StrictMode>
 );

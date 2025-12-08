@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabase";
+import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState([]);
@@ -8,6 +9,8 @@ export default function AdminDashboard() {
     price: "",
     stock: "",
     image: "",
+    description: "",
+    images: "",
   });
 
   async function fetchProducts() {
@@ -22,10 +25,28 @@ export default function AdminDashboard() {
 
   async function addProduct(e) {
     e.preventDefault();
-    const { error } = await supabase.from("products").insert([newProduct]);
+
+    const formattedProduct = {
+      ...newProduct,
+      images: newProduct.images
+        ? newProduct.images.split(",").map((i) => i.trim())
+        : [],
+    };
+
+    const { error } = await supabase
+      .from("products")
+      .insert([formattedProduct]);
+
     if (error) alert(error.message);
     else {
-      setNewProduct({ name: "", price: "", stock: "", image: "" });
+      setNewProduct({
+        name: "",
+        price: "",
+        stock: "",
+        image: "",
+        description: "",
+        images: "",
+      });
       fetchProducts();
     }
   }
@@ -49,6 +70,7 @@ export default function AdminDashboard() {
     <div className="page-wrapper">
       <h1>Admin Dashboard</h1>
 
+      {/* ADD PRODUCT FORM */}
       <div className="admin-form">
         <h2>Add New Product</h2>
         <form onSubmit={addProduct}>
@@ -59,6 +81,7 @@ export default function AdminDashboard() {
               setNewProduct({ ...newProduct, name: e.target.value })
             }
           />
+
           <input
             type="number"
             placeholder="Price"
@@ -67,6 +90,7 @@ export default function AdminDashboard() {
               setNewProduct({ ...newProduct, price: e.target.value })
             }
           />
+
           <input
             type="number"
             placeholder="Stock"
@@ -75,17 +99,36 @@ export default function AdminDashboard() {
               setNewProduct({ ...newProduct, stock: e.target.value })
             }
           />
+
           <input
-            placeholder="Image URL (optional)"
+            placeholder="Main Image URL"
             value={newProduct.image}
             onChange={(e) =>
               setNewProduct({ ...newProduct, image: e.target.value })
             }
           />
+
+          <textarea
+            placeholder="Description"
+            value={newProduct.description}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, description: e.target.value })
+            }
+          />
+
+          <input
+            placeholder="Additional image URLs (comma separated)"
+            value={newProduct.images}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, images: e.target.value })
+            }
+          />
+
           <button type="submit">Add Product</button>
         </form>
       </div>
 
+      {/* PRODUCT TABLE */}
       <div className="table-wrapper">
         <h2>Products List</h2>
         <table>
@@ -94,15 +137,19 @@ export default function AdminDashboard() {
               <th>Name</th>
               <th>Price</th>
               <th>Stock</th>
-              <th>Image</th>
+              <th>Main Image</th>
+              <th>Description</th>
+              <th>Extra Images</th>
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody>
             {products.map((p) => (
               <tr key={p.id}>
                 <td>{p.name}</td>
                 <td>£{p.price}</td>
+
                 <td>
                   <input
                     type="number"
@@ -110,9 +157,19 @@ export default function AdminDashboard() {
                     onChange={(e) => updateStock(p.id, e.target.value)}
                   />
                 </td>
+
                 <td>
                   {p.image && <img src={p.image} alt={p.name} width="50" />}
                 </td>
+
+                <td>{p.description?.slice(0, 50)}...</td>
+
+                <td>
+                  {p.images?.map((img, i) => (
+                    <img key={i} src={img} alt="" width="40" />
+                  ))}
+                </td>
+
                 <td>
                   <button onClick={() => deleteProduct(p.id)}>Delete</button>
                 </td>

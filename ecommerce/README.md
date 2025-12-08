@@ -14,3 +14,24 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Running this project (local dev)
+
+1. Install dependencies:
+
+   npm install
+
+2. Create a `.env` in the project root with your Supabase keys:
+
+   VITE_SUPABASE_URL=your-supabase-url
+   VITE_SUPABASE_KEY=your-anon-or-service-key
+
+3. Start the dev server:
+
+   npm run dev
+
+Open the site at the URL printed by Vite (e.g. http://localhost:5175).
+
+Note: This project stores Supabase keys in a local `.env` for development only. Do not commit sensitive keys to source control.
+
+If you run into issues with routing or authentication, check the browser console for error logs — the login page and header print helpful debug messages.

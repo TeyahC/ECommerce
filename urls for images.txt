@@ -1,0 +1,99 @@
+UPDATE public.products SET 
+  image = 'https://media.istockphoto.com/id/1399548383/vector/carrot-with-leaves-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=JVqIhTEE0m8b26_nZcDoU3VqJVjHyc7P4m0j4Jf0qMs=',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNqlOX7ILwHt6IjZOIXg0aa30wtRjBGgNh6w&s', 'https://harvestmarkets.com.au/cdn/shop/products/ResizerImage2048X1535_1024x1024.jpg?v=1585620612' ,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRYKXsM3yLwRHLp7qAyWka2yhgMY7rpobELQ&s']
+WHERE name = 'Carrot';
+
+UPDATE public.products SET 
+  image = 'https://img.freepik.com/premium-photo/damson-2d-cartoon-illustraton-white-background-high-qua_889056-22080.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe-1_u6dUDkpqUXW_3ZDXdz51rD_fzOVRNaA&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAe_vvHtJo4YOJQ1H594jTte9H9B2WplYpZg&s' ,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2OvzrtIB41y7WCTi-5oK2kExuTOt2PTuA4A&s']
+WHERE name = 'Damson';
+
+UPDATE public.products SET 
+  image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI_62EVJHiWS3aBcCbcYLpL5ejjLON3gmF5w&s',
+  images = ARRAY['https://cdn-prod.medicalnewstoday.com/content/images/articles/323/323288/benefits-of-elderberry.jpg', 'https://khni.kerry.com/wp-content/uploads/2025/09/elderberries.png', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/02/elderberries-4ae76c4.png']
+WHERE name = 'Elderberry';
+
+UPDATE public.products SET 
+  image = 'https://img.freepik.com/premium-vector/fennel-clipart-cartoon-style-vector-illustration_761413-5091.jpg',
+  images = ARRAY['https://assets.sainsburys-groceries.co.uk/gol/1197211/1/640x640.jpg', 'https://www.gardenfreshexotics.co.uk/cdn/shop/products/Pasted-20210218-133746_clipped_rev_1.png?v=1613655560', 'https://shop.wattsfarms.co.uk/cdn/shop/products/fennell_645x.png?v=1584661647']
+WHERE name = 'Fennel';
+
+UPDATE public.products SET 
+  image = 'https://img.freepik.com/premium-vector/vector-realistic-cartoon-gooseberry-icon-gooseberry-berry-isolated-white-background-element_87749-553.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGpU1_AaugXIAQcc_hFMBAlVGTp62kDlVqCw&s', 'https://cdn.britannica.com/39/174539-050-B75B73EB/Cape-gooseberries-calyx-husks-fruits-plant-member.jpg', 'https://orgfarm.store/cdn/shop/files/indian-gooseberry.png?v=1721890047&width=1920']
+WHERE name = 'Gooseberry';
+
+UPDATE public.products SET 
+  image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe0HMsqqwEJAWvCvpm2cZf9j3LB1BKKFj4Og&s',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfWoSHORLBgEMsDmZfVwmd6Eol86R5AFLog&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAVc6H2Z120G5fc4i2wpir-mx874O7rIbbiA&s', 'https://www.healthyfood.com/wp-content/uploads/2017/03/In-season-July-Kale.jpg']
+WHERE name = 'Kale';
+
+UPDATE public.products SET 
+  image = 'https://media.istockphoto.com/id/1189117678/vector/vector-illustration-of-a-funny-leek-in-cartoon-style.jpg?s=612x612&w=0&k=20&c=GDrRzlE1stpFBBnEcaFo3a0RpHjRr0PmBk7VNpW1dtE=',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJdo1kkeD8K3Rfpwd_W9mzQhy3xABgcZ_Rkg&s', 'https://veggipedia-cms.production.taks.zooma.cloud/assets/Uploads/Products/prei-groenten-veggipedia.png', 'https://www.oneorganic.co.uk/wp-content/uploads/2019/03/leeks-600x476.png']
+WHERE name = 'Leek';
+
+UPDATE public.products SET 
+  image = 'https://static.vecteezy.com/system/resources/thumbnails/031/736/842/small/melon-fruit-whole-and-sliced-illustration-isolated-on-white-background-vector.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmEuiflAIZTa9nxUvuMsgvyU89R44LkJrl6g&s', 'https://4rfreshandfrozen.com/cdn/shop/products/Fruits-melon_2048x2048.jpg?v=1585409985', 'https://fruits.today/image/cache/catalog/product/4/Melon_zolty_1szt-800x800.jpg']
+WHERE name = 'Melon';
+
+UPDATE public.products SET 
+  image = 'https://thumbs.dreamstime.com/b/nectarine-23282443.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVLOWkI9Vrm4Pk9XE0Wp2boe8o9T5WPHAIgQ&s', 'https://fruitmasters.com/wp-content/uploads/2020/04/2020_Packshot_Nectarine_500x500px-300x300.png', 'https://exoticfruits.co.uk/cdn/shop/products/nectarine-flat-exoticfruitscouk-508857.jpg?v=1645489100']
+WHERE name = 'Nectarine';
+
+UPDATE public.products SET 
+  image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtFSu9OaZo89kNAc7TEAI3_dmvWTzxiHHTQ&s',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVJvNHpkxXUZ8sxAWLN5njITwoBXrmO80ebw&s', 'https://images.apollo247.in/pd-cms/cms/2025-05/AdobeStock_1309389327_Preview.webp?tr=q-80,f-webp,w-400,dpr-2.5,c-at_max%201000w','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1HIuCDIpFrVhU-akxaN4FYuUzt-2sjrZI0w&s']
+WHERE name = 'Onion';
+
+UPDATE public.products SET 
+  image = 'https://media.istockphoto.com/id/1398721026/vector/whole-pear-icon-one-ripe-fruit-on-a-branch-with-two-leaves-green-pear-isolated-on-white.jpg?s=612x612&w=0&k=20&c=fXkyzcUXQPD-uKSNeDM61RN1sM7CQHS8Nk1TZRDewIE=',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVZs3XyPL7MA0miDXJKPEVfHspLP-1-owIdQ&s', 'https://thrivemeetings.com/wp-content/uploads/2018/06/pears-fruits-and-veggies-month-thrive-sized-iStock-518590720.png','https://images.immediate.co.uk/production/volatile/sites/30/2020/02/pears-28f8900.jpg?quality=90&resize=700,636']
+WHERE name = 'Pear';
+
+UPDATE public.products SET 
+  image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIKgEaE-65xm4pOeJ3BqoZ4PkW6LjTsHbMuA&s',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-N9zUqz9hEPUniYVNLevUNOGrzU1JC9fTA&s', 'https://exoticfruits.co.uk/cdn/shop/products/quince-exoticfruitscouk-515018.jpg?v=1645489422','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWrNVYh0BhBdVAdko3PKpq1RUYxQSJC8fvqA&s']
+WHERE name = 'Quince';
+
+UPDATE public.products SET 
+  image = 'https://t3.ftcdn.net/jpg/04/34/80/86/360_F_434808602_zd37MA61wogURMA34z2g8zgoF7Ya0Qyp.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTio1bQSxt0lIr08vMEO0c01n4CRPF9tmjf9g&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk1JeKj4-XxWzU80JiSrcZZA9cp1TVQw9lpQ&s','https://tedsveg.co.uk/wp-content/uploads/2021/03/DSCN0048.jpg']
+WHERE name = 'Raspberry';
+
+UPDATE public.products SET 
+  image = 'https://static.vecteezy.com/system/resources/previews/055/614/475/non_2x/fresh-strawberry-cartoon-illustration-isolated-on-white-background-vector.jpg',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSNftENy4IRboYdi72dlxf7yj6xiKS0uMzfw&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQSHz6J8ZRBx9-Lxx_O4p-ValtrUQ2jizWDQ&s','https://i0.wp.com/stutzmans.com/wp-content/uploads/2021/04/23418-7-strawberry-transparent-background.png?resize=250%2C250&ssl=1']
+WHERE name = 'Strawberry';
+
+UPDATE public.products SET 
+  image = 'https://media.istockphoto.com/id/1355698907/vector/tomato-icon-clipart-vegetable-vector-illustration.jpg?s=612x612&w=0&k=20&c=deYPZkyRge_A59F7wjRtDyNvTjCNlLMcvlmC07ujt4I=',
+  images = ARRAY['https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg', 'https://www.gustagarden.com/cdn/shop/files/Gusta-Garden_hellfrucht.png?v=1705654017','https://www.melissas.com/cdn/shop/files/image-of-organic-tomatoes-fruit-34547171950636_600x601.jpg?v=1691078328']
+WHERE name = 'Tomato';
+
+UPDATE public.products SET 
+  image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw8I29VQCtDjl7VSQ7OJrFc4e9oZyNWin-nw&s',
+  images = ARRAY['https://www.marthastewart.com/thmb/8kKVeamjzbklF3siYW_1GmDqlO0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/what-is-ube-getty-hero-0124-ba9b734da7fb48efa80033802cf835ea.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8qVTGhLzzYSbzDqSX1bpFVF5Wiy8LJISwWA&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaUvBn0uIeSjCQCwC9v1aatGuloAqkfOSK3g&s']
+WHERE name = 'Ube';
+
+UPDATE public.products SET 
+  image = 'https://thumbs.dreamstime.com/b/flat-victoria-plum-illustration-drawing-children-you-can-use-books-web-design-posters-campaigns-many-more-348645580.jpg',
+  images = ARRAY['https://www.heddensofwoodtown.co.uk/wp-content/uploads/2020/07/Plums_opt.jpg', 'https://www.bloomandveg.co.uk/wp-content/uploads/2020/07/56C41E01-F928-471C-9E5E-8AAAE0BE6BFA.jpeg','https://media.istockphoto.com/id/928442240/photo/fresh-red-plum-isolated-on-white.jpg?s=612x612&w=0&k=20&c=qsdqUxTLfqq6sr6ILphCZEQNDOUJTFqkOLEoSK1TaVA=']
+WHERE name = 'Victoria Plum';
+
+UPDATE public.products SET 
+  image = 'https://media.istockphoto.com/id/1390846020/vector/illustration-of-vegetable-watercress-food.jpg?s=612x612&w=0&k=20&c=G163AyCtvDI1cMzViygWByEsG19c8TnQXk_OiyRZwc0=',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtbKZlJMTWQ33skLnKeNCCp_8cUulUPqd1vQ&s', 'https://www.lettucegrow.com/cdn/shop/files/Watercress.png?v=1750893184','https://images.immediate.co.uk/production/volatile/sites/30/2024/06/Watercress440-755b440.jpg']
+WHERE name = 'Watercress';
+
+UPDATE public.products SET 
+  image = 'https://static.vecteezy.com/system/resources/thumbnails/015/123/761/small/yam-bean-3d-icon-png.png',
+  images = ARRAY['https://www.thai-food-online.co.uk/cdn/shop/products/man-kaew-yam-bean.jpg?v=1570097450', 'https://i.ebayimg.com/images/g/hUYAAOSw91BitJki/s-l1200.jpg','https://m.media-amazon.com/images/I/61BaS+FkVbL.jpg']
+WHERE name = 'Yam Bean';
+
+UPDATE public.products SET 
+  image = 'https://img.freepik.com/premium-vector/healthy-currant-berry-icon-cartoon-healthy-currant-berry-vector-icon-web-design-isolated-white-background_98402-37593.jpg?semt=ais_hybrid&w=740&q=80',
+  images = ARRAY['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlZQ-UK3GVGqknZBRuAiXvS4TOwuktti_VuA&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ7Yl_rBFisEFZlHh_D7nCS6NHDFzleOs70w&s','https://nuts.com/images/rackcdn/ed910ae2d60f0d25bcb8-80550f96b5feb12604f4f720bfefb46d.ssl.cf1.rackcdn.com/1022_Currants_Bowl-3aITsZKx-large.jpg']
+WHERE name = 'Zante Currant';

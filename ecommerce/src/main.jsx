@@ -2,14 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./index.css";
-
 import App from "./App.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import Login from "./pages/Login.jsx";
 import Cart from "./pages/cart.jsx";
-import CustomerLogin from "./pages/customer.jsx";
-import Header from "./components/header.jsx";
+import CustomerLogin from "./pages/Customer.jsx";
+import Header from "./components/Header.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
@@ -25,8 +23,6 @@ createRoot(document.getElementById("root")).render(
           <Route path="/cart" element={<Cart />} />
           <Route path="/customer" element={<CustomerLogin />} />
           <Route path="/products/:id" element={<ProductDetails />} />
-
-          {/* Only one admin route, wrapped in AdminRoute */}
           <Route
             path="/admin"
             element={

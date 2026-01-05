@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { supabase } from "../supabase";
 import { addToCart as addToCartUtils } from "../utils/cart"; // your cart.js
+import { useAuth } from "../contexts/AuthContext.jsx";
 import "../styles/styles.css";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
 
   // Load product from Supabase
   useEffect(() => {
@@ -24,14 +25,7 @@ export default function ProductDetail() {
     fetchProduct();
   }, [id]);
 
-  // Load logged-in user
-  useEffect(() => {
-    async function loadUser() {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user || null);
-    }
-    loadUser();
-  }, []);
+  // user comes from AuthContext
 
   if (!product) return <p>Loading...</p>;
 
@@ -51,11 +45,13 @@ export default function ProductDetail() {
   return (
     <div className="page-wrapper">
       <h1>{product.name}</h1>
-
       <div className="product-detail">
         {/* Image gallery */}
         <div className="image-gallery">
-          <img src={images[currentImage]} alt={product.name} />
+          <div className="main-image">
+            <img src={images[currentImage]} alt={product.name} />
+          </div>
+
           {images.length > 1 && (
             <div className="thumbnails">
               {images.map((img, index) => (
@@ -64,8 +60,9 @@ export default function ProductDetail() {
                   src={img}
                   alt={`${product.name} ${index + 1}`}
                   onClick={() => setCurrentImage(index)}
-                  className={currentImage === index ? "active-thumb" : ""}
-                  style={{ cursor: "pointer", width: "50px", margin: "5px" }}
+                  className={`thumbnail ${
+                    currentImage === index ? "active-thumb" : ""
+                  }`}
                 />
               ))}
             </div>
@@ -74,11 +71,14 @@ export default function ProductDetail() {
 
         {/* Product info */}
         <div className="product-info">
-          <p className="price">£{product.price}</p>
+          <p className="price">£{Number(product.price).toFixed(2)}</p>
           <p>{product.description}</p>
-          <button onClick={handleAddToCart}>Add to Cart</button>
+          <button className="admin-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
+      ;
     </div>
   );
 }

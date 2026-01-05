@@ -16,28 +16,20 @@ export default function Login() {
   // Auth context (real logged-in user + role)
   const { user: authUser, role: authRole } = useAuth();
 
-  // --- Test Supabase auth on mount ---
+  // ✅ FIX: If user is logged in, redirect ONLY when you're ON the login page
+  // Move navigation into an effect to avoid calling navigate during render.
   useEffect(() => {
-    async function testConnection() {
-      try {
-        const { data, error } = await supabase.auth.getUser();
-        console.log("[Supabase Test] getUser:", { data, error });
-        if (data?.user) setLocalUser(data.user);
-      } catch (err) {
-        console.error("[Supabase Test] Error:", err);
-      }
-    }
-    testConnection();
-  }, []);
+    if (!authUser || !authRole) return;
+    if (window.location.pathname !== "/login") return;
 
-  // --- Redirect when auth context updates ---
-  useEffect(() => {
-    if (authUser && authRole) {
-      console.log("[AUTH CONTEXT UPDATED]", authUser.email, authRole);
-      if (authRole === "admin") navigate("/admin");
-      else navigate("/customer");
-    }
-  }, [authUser, authRole]);
+    if (authRole === "admin") navigate("/admin", { replace: true });
+    else navigate("/customer", { replace: true });
+  }, [authUser, authRole, navigate]);
+
+  // NOTE: removed a development test that called supabase.auth.getUser()
+  // on mount. That test caused repeated network calls and noisy console
+  // messages when switching tabs. Real auth state is handled by
+  // AuthContext; we keep `localUser` only for the lightweight welcome view.
 
   // --- Fetch user role & redirect ---
   const redirectBasedOnRole = async (userId) => {
@@ -74,9 +66,6 @@ export default function Login() {
       let currentUser;
 
       if (isLogin) {
-        // ----------------------------
-        // LOGIN
-        // ----------------------------
         const { data, error } = await supabase.auth.signInWithPassword({
           email,
           password,
@@ -87,9 +76,6 @@ export default function Login() {
         if (error) throw error;
         currentUser = data.user;
       } else {
-        // ----------------------------
-        // REGISTER
-        // ----------------------------
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
@@ -99,10 +85,6 @@ export default function Login() {
 
         if (error) throw error;
 
-        // If the signUp flow requires email confirmation, Supabase will
-        // return no session for the new user. In that case we should not
-        // attempt to upsert to the `users` table from the client (RLS will
-        // block it) — instruct the user to confirm their email instead.
         if (!data?.session) {
           setErrorMsg(
             "Registration created — please check your email to confirm your account before logging in."
@@ -111,7 +93,6 @@ export default function Login() {
           return;
         }
 
-        // We have an active session, proceed to insert the user profile row
         currentUser = data.user;
 
         console.log("[SIGNUP] Upserting into users table...");
@@ -127,7 +108,6 @@ export default function Login() {
         if (upsertError) throw upsertError;
         console.log("[SIGNUP] User role saved to DB");
 
-        // Auto-login after register (should already be logged in if session exists)
         const { data: loginData, error: loginError } =
           await supabase.auth.signInWithPassword({
             email,
@@ -159,7 +139,6 @@ export default function Login() {
       if (role === "admin") navigate("/admin");
       else navigate("/customer");
 
-      // Clear fields
       setEmail("");
       setPassword("");
     } catch (err) {

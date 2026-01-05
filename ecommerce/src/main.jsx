@@ -6,7 +6,7 @@ import App from "./App.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import Login from "./pages/Login.jsx";
 import Cart from "./pages/cart.jsx";
-import CustomerLogin from "./pages/Customer.jsx";
+import CustomerLogin from "./pages/customer.jsx";
 import Header from "./components/Header.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import AdminPage from "./pages/AdminPage.jsx";
